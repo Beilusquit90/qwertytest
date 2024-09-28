@@ -1,0 +1,187 @@
+{
+    "id": "Eh61",
+    "name": "999",
+    "short_name": "999",
+    "description": "999",
+    "start_url": "/",
+    "scope": "./",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "display": "standalone",
+    "lang": "en",
+    "orientation": "any",
+    "dir": "auto",
+    "icons": [
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r48x48_webp",
+            "type": "image/webp",
+            "sizes": "48x48",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r48x48_webp",
+            "type": "image/webp",
+            "sizes": "48x48",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r48x48_png",
+            "type": "image/png",
+            "sizes": "48x48",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r48x48_png",
+            "type": "image/png",
+            "sizes": "48x48",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r72x72_webp",
+            "type": "image/webp",
+            "sizes": "72x72",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r72x72_webp",
+            "type": "image/webp",
+            "sizes": "72x72",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r72x72_png",
+            "type": "image/png",
+            "sizes": "72x72",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r72x72_png",
+            "type": "image/png",
+            "sizes": "72x72",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r96x96_webp",
+            "type": "image/webp",
+            "sizes": "96x96",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r96x96_webp",
+            "type": "image/webp",
+            "sizes": "96x96",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r96x96_png",
+            "type": "image/png",
+            "sizes": "96x96",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r96x96_png",
+            "type": "image/png",
+            "sizes": "96x96",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r144x144_webp",
+            "type": "image/webp",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r144x144_webp",
+            "type": "image/webp",
+            "sizes": "144x144",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r144x144_png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r144x144_png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r192x192_webp",
+            "type": "image/webp",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r192x192_webp",
+            "type": "image/webp",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r192x192_png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r192x192_png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r512x512_webp",
+            "type": "image/webp",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r512x512_webp",
+            "type": "image/webp",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r512x512_png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507/_r512x512_png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ],
+    "prefer_related_applications": true,
+    "related_applications": [
+        {
+            "platform": "webapp",
+            "url": "https://klklk.shop/manifest.json"
+        }
+    ],
+    "manifest_package": "org.chromium.webapk.Eh61",
+    "scope_url": "https://klklk.shop/",
+    "display_mode": "standalone",
+    "display_override": [
+        "standalone",
+        "minimal-ui"
+    ],
+    "intent_filters": {
+        "scope_url_scheme": "https",
+        "scope_url_host": "klklk.shop",
+        "scope_url_path": "/"
+    },
+    "web_manifest_url": "https://klklk.shop/manifest.json",
+    "version_code": "1",
+    "version_name": "1.0",
+    "bound_webapk": {
+        "runtime_host": "org.chromium.chrome",
+        "runtime_host_application_name": "Chromium"
+    },
+    "icon_urls_and_icon_murmur2_hashes": "https://klklk.shop/assets-ucp/EhkO/i9536e69d084378a3147301fc49f47507 0"
+}
