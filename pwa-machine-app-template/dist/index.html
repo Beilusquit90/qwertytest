@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="App Market">
+    <meta name="google" content="notranslate">
+    <meta name="user_id" content="user_id_value">
+    <meta name="onesignal_app_id" content="onesignal_app_id_value">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="data:," />
+    <title>App Market</title>
+
+    <style>
+
+      :root {
+        --blue: #4285F4;
+        --red: #DB4437;
+        --yellow: #F4B400;
+        --green: #0F9D58;
+      }
+
+      body {
+        height: 100svh;
+      }
+
+      #app {
+        position: relative;
+        z-index: 1;
+      }
+
+      .container-loader {
+        width: 200px;
+        height: 200px;
+        position: fixed;
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        margin: 10px;
+        min-width: 100px;
+        display: none;
+      }
+
+      .container-loader .content {
+        width: 100%;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .animation .dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+        margin: 5px;
+        animation: g-loader 1s ease-in-out infinite;
+      }
+
+      .animation .dot:nth-child(1) {
+        background: var(--blue);
+        animation-delay: .1s;
+      }
+
+      .animation .dot:nth-child(2) {
+        background: var(--red);
+        animation-delay: .25s;
+      }
+
+      .animation .dot:nth-child(3) {
+        background: var(--yellow);
+        animation-delay: .4s;
+      }
+
+      .animation .dot:nth-child(4) {
+        background: var(--green);
+        animation-delay: .55s;
+      }
+
+      @keyframes g-loader {
+        0%, 100% {
+          height: 15px;
+        }
+        50% {
+          height: 40px;
+        }
+      }
+
+    </style>
+
+    
+    
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+
+  <body>
+    <div id="loader" class="container-loader animation">
+      <div class="content">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div id="app" style="display: none;"></div>
+    <a style="display: none" id="rd" href="#">rd</a>
+    <script>
+
+      window.deferredPrompt = null;
+
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        window.deferredPrompt = event;
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+
+        const loader = document.getElementById('loader');
+        const app = document.getElementById('app');
+
+        if (loader) {
+          loader.style.display = 'block';
+
+          setTimeout(() => {
+            const fontRobotoLink = document.createElement('link');
+            fontRobotoLink.rel = 'stylesheet';
+            fontRobotoLink.href = 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap';
+            fontRobotoLink.media = 'print';
+            fontRobotoLink.onload = function () {
+              fontRobotoLink.media = 'all';
+            };
+
+            const fontManropeLink = document.createElement('link');
+            fontManropeLink.rel = 'stylesheet';
+            fontManropeLink.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap';
+            fontManropeLink.media = 'print';
+            fontManropeLink.onload = function () {
+              fontManropeLink.media = 'all';
+            };
+
+            const indexCssLink = document.createElement('link');
+            indexCssLink.rel = 'stylesheet';
+            indexCssLink.href = '/assets/index-C_mXxGlj.css';
+            indexCssLink.crossorigin = 'anonymous';
+
+            document.head.appendChild(indexCssLink);
+            document.head.appendChild(fontRobotoLink);
+            document.head.appendChild(fontManropeLink);
+
+            const indexScript = document.createElement('script');
+            indexScript.src = '/assets/index-V2hs9HcE.js';
+            indexScript.type = 'module';
+            indexScript.defer = true;
+            indexScript.crossorigin = 'anonymous';
+
+            const registerSWScript = document.createElement('script');
+            registerSWScript.src = '/registerSW.js';
+            registerSWScript.id = 'vite-plugin-pwa:register-sw';
+
+            document.body.appendChild(registerSWScript);
+            document.body.appendChild(indexScript);
+          }, 500);
+        }
+      });
+
+    </script>
+ <script id="pwaInfo">
+  var pwaInfo = {
+      "approved": true,
+      "name": "Plinko",
+      "developer": "1xBet",
+      "have_ads": true,
+      "have_purchase": true,
+      "editor_choice": true,
+      "age": 18,
+      "rating": 4.8,
+      "number_of_reviews": 6253,
+      "number_of_downloads": 100000,
+      "por_5": 90,
+      "por_4": 4,
+      "por_3": 3,
+      "por_2": 1,
+      "por_1": 1,
+      "descr": "انغمس في عالم Plinko المثير، أفضل تطبيق كازينو مصمم لمتعة لا نهاية لها ومكافآت رائعة. سواء كنت لاعبًا ذا خبرة أو جديدًا في عالم الكازينو، فإن Plinko يقدم مزيجًا مثاليًا من المرح والاستراتيجية.\n\n🎨 رسومات مذهلة: رسومات عالية الجودة ورسوم متحركة سلسة تضفي الحيوية على اللعبة.\n\n💰 مكافآت سخية: مكافآت المكالمات اليومية، ومكافآت الترحيب، وامتيازات VIP الحصرية.\n\n🎉 اللفات الإضافية المثيرة: اختبر إثارة اللفات الإضافية والمضاعفات واللفات المجانية.\n\n🏆 البطولات الأسبوعية: تنافس حول العالم وتسلق التصنيف للفوز بجوائز خاصة.\n\n✨ واجهة سهلة الاستخدام: يضمن التنقل البسيط والتصميم البديهي تجربة لعب سلسة.\n\n🔒ألعاب آمنة وعادلة. استمتع بمنصة آمنة مع ألعاب عادلة ودعم العملاء على مدار الساعة طوال أيام الأسبوع.\n\n🌍 انضم إلى المجتمع العالمي وانطلق في رحلة مثيرة مليئة بالفرص والمكافآت. 🌟\n\n🚀 طريقة لعب مذهلة ومكافآت رائعة بانتظارك! لا تفوت المتعة! 🎉\n\n🎁 المكافآت اليومية والمزايا الحصرية تجعل كل لعبة مغامرة! ✈️\n\nقم بتنزيل Plinko الآن واكتشف الأفضل في مجال الترفيه في الكازينو. 🎮💰",
+      "vers": "6.4.5001",
+      "last_update": 1708502183,
+      "rav": "10",
+      "ie": "Interactive elements",
+      "release": 1708502183,
+      "whats_new": "upd 4.75b",
+      "google": "",
+      "yandex": "",
+      "facebook": "",
+      "tiktok": "",
+      "categories": [],
+      "comments": [{
+          "date": 1726642583,
+          "user_name": "بادي",
+          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/b2bd3004-2aeb-46ab-73fc-5aedf58dab00/public",
+          "picture_ru": "",
+          "content": "Plinko هو تطبيق رائع أوصي به الجميع\n",
+          "stars": 5,
+          "likes": 75,
+          "priority": 0
+      }, {
+          "date": 1726124183,
+          "user_name": "معروف",
+          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/9a9ab0cf-9ab7-45cb-a55c-9d7c51e98200/public",
+          "picture_ru": "",
+          "content": "تطبيق طيار عظيم. نحن نستخدمها بكل سرور. مريحة للغاية ومفهومة. من الممتع المراهنة على الرياضة.. أوصي بهذا التطبيق.\n",
+          "stars": 5,
+          "likes": 32,
+          "priority": 3
+      }, {
+          "date": 1728543383,
+          "user_name": "Casi",
+          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/f182ae43-9e04-489d-e7cd-e0eebee6d100/public",
+          "picture_ru": "",
+          "content": "Wery good!",
+          "stars": 5,
+          "likes": 21,
+          "priority": 4
+      }, {
+          "date": 1726469783,
+          "user_name": "bobik",
+          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/89de09d3-6c76-4267-16f6-29f7d8a68b00/public",
+          "picture_ru": "",
+          "content": "Plinko هو تطبيق رائع حيث يمكنك كسب أموال جيدة من الرهانات والكازينوهات\n",
+          "stars": 5,
+          "likes": 53,
+          "priority": 1
+      }, {
+          "date": 1708502183,
+          "user_name": "",
+          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/a70226e0-475f-4f8b-3a49-e0caf5cb8e00/public",
+          "picture_ru": "",
+          "content": "لقد قمت بتنزيل تطبيق كازينو Plinko الممتاز عبر الإنترنت، وحقق أرباحًا جيدة واحتمالات عالية ودفعات فورية. ممتاز!!!\n",
+          "stars": 4,
+          "likes": 15,
+          "priority": 2
+      }],
+      "pictures": [{
+          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/568d39fe-ac08-4c36-2a63-2ddf2538dc00/public",
+          "picture_ru": ""
+      }, {
+          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/3e665eb5-deed-4978-7a7f-c7ceb914f800/public",
+          "picture_ru": ""
+      }, {
+          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/49580784-094e-4cd0-f705-6b9b3b42dd00/public",
+          "picture_ru": ""
+      }, {
+          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/badb347a-0c05-4537-f6fd-377a7d794f00/public",
+          "picture_ru": ""
+      }],
+      "icon": {
+          "link": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/abf98918-3e74-429b-61e8-6151a0b6c400/public",
+          "picture_ru": ""
+      },
+      "static_text": {
+          "install_btn": "تثبيت",
+          "open_btn": "فتح",
+          "installing_str": "يتم التثبيت...",
+          "app_available_str": "يتوفَّر هذا التطبيق لجميع أجهزتك.",
+          "app_not_available": "هذا التطبيق غير متوفر لأجهزتك.",
+          "helpful_info_str": "هل كان هذا المحتوى مفيدًا؟",
+          "yes_str": "نعم",
+          "no_str": "لا",
+          "all_reviews_str": "كل التقييمات",
+          "gift_cards_str": "بطاقات الهدايا",
+          "use_bonus_str": "تحصيل القيمة",
+          "refund_policy_str": "المشاركة بين أفراد العائلة",
+          "children_and_family_str": "الأطفال والعائلة",
+          "guide_for_parents_str": "دليل الوالدَين",
+          "terms_of_use_str": "بنود الخدمة",
+          "confidentiality_str": "الخصوصية",
+          "about_google_play_str": "لمحة عن هذا التطبيق",
+          "for_developers_str": "مطوّرو البرامج",
+          "vat_prices_str": "تشمل جميع الأسعار ضريبة القيمة المضافة.",
+          "developer_str": "يُقدّمه",
+          "have_ads_str": "يتضمن إعلانات",
+          "have_purchase_str": "عمليات شراء داخل التطبيق",
+          "editor_choice_str": "اختيار المحررين",
+          "age_restriction_str": "تقييم المحتوى",
+          "last_update_str": "تاريخ التحديث",
+          "version_str": "الإصدار",
+          "description_str": "الوصف",
+          "ie_str": "عناصر تفاعلية",
+          "rav_str": "يتطلب Android",
+          "release_str": "تاريخ الإصدار",
+          "whats_new_str": "ما الجديد",
+          "data_safety_str": "أمان البيانات",
+          "data_security": "يبدأ الحفاظ على أمان بياناتك بفهم الطريقة التي يتّبعها مطوِّرو التطبيقات لجمع بياناتك ومشاركتها. قد تختلف خصوصية البيانات وممارسات الأمان حسب كيفية استخدامك للتطبيق ومنطقتك وعمرك. يوفّر مطوِّر التطبيقات هذه المعلومات وقد يعدِّلها بمرور الوقت.",
+          "data_transfer": "قد يشارك هذا التطبيق أنواع البيانات هذه مع جهات خارجية. النشاط على التطبيق ومعلومات التطبيق وأداؤه والجهاز أو أرقام التعريف الأخرى",
+          "data_collection": "قد يجمع هذا التطبيق أنواع البيانات هذه. المعلومات الشخصية والمعلومات المالية و6 نوع آخر من البيانات",
+          "data_encryption": "يتم تشفير البيانات أثناء النقل",
+          "deleting_data": "يتم تشفير البيانات أثناء النقل",
+          "number_of_reviews_str": " مراجعة",
+          "rating_str": "التقييم",
+          "number_of_downloads_str": "عمليات التنزيل",
+          "rating_and_reviews_str": "التقييمات والتعليقات",
+          "rating_and_reviews_verif_str": "تم التحقّق من التقييمات والمراجعات.",
+          "parental_controls_required": "التحكم الأبوي مطلوب"
+      },
+      "offer": "https://budgeteam.online/ceu5l1k.php?key=qqeedakc7alzzndem6cm\u0026external_id=c9f33b2e-cd0c-40a7-b6e1-b0f9fafa8476\u0026sub_id_1={sub_id_1}\u0026sub_id_2={sub_id_2}\u0026sub_id_3={sub_id_3}\u0026sub_id_4={sub_id_4}\u0026sub_id_5={sub_id_5}"
+  };
+  </script>
+  </body>
+</html>
