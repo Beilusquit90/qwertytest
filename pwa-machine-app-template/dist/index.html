@@ -1,309 +1,572 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="App Market">
-    <meta name="google" content="notranslate">
-    <meta name="user_id" content="user_id_value">
-    <meta name="onesignal_app_id" content="onesignal_app_id_value">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="data:," />
-    <title>App Market</title>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="انغمس في عالم Plinko المثير، أفضل تطبيق كازينو مصمم لمتعة لا نهاية لها ومكافآت رائعة. سواء كنت لاعبًا ذا خبرة أو جديدًا في عالم الكازينو، فإن Plinko يقدم مزيجًا مثاليًا من المرح والاستراتيجية.
 
-    <style>
+🎨 رسومات مذهلة: رسومات عالية الجودة ورسوم متحركة سلسة تضفي الحيوية على اللعبة.
 
-      :root {
-        --blue: #4285F4;
-        --red: #DB4437;
-        --yellow: #F4B400;
-        --green: #0F9D58;
-      }
+💰 مكافآت سخية: مكافآت المكالمات اليومية، ومكافآت الترحيب، وامتيازات VIP الحصرية.
 
-      body {
-        height: 100svh;
-      }
+🎉 اللفات الإضافية المثيرة: اختبر إثارة اللفات الإضافية والمضاعفات واللفات المجانية.
 
-      #app {
-        position: relative;
-        z-index: 1;
-      }
+🏆 البطولات الأسبوعية: تنافس حول العالم وتسلق التصنيف للفوز بجوائز خاصة.
 
-      .container-loader {
-        width: 200px;
-        height: 200px;
-        position: fixed;
-        z-index: 1000;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #fff;
-        margin: 10px;
-        min-width: 100px;
-        display: none;
-      }
+✨ واجهة سهلة الاستخدام: يضمن التنقل البسيط والتصميم البديهي تجربة لعب سلسة.
 
-      .container-loader .content {
-        width: 100%;
-        display: flex;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-      }
+🔒ألعاب آمنة وعادلة. استمتع بمنصة آمنة مع ألعاب عادلة ودعم العملاء على مدار الساعة طوال أيام الأسبوع.
 
-      .animation .dot {
-        width: 15px;
+🌍 انضم إلى المجتمع العالمي وانطلق في رحلة مثيرة مليئة بالفرص والمكافآت. 🌟
+
+🚀 طريقة لعب مذهلة ومكافآت رائعة بانتظارك! لا تفوت المتعة! 🎉
+
+🎁 المكافآت اليومية والمزايا الحصرية تجعل كل لعبة مغامرة! ✈️
+
+قم بتنزيل Plinko الآن واكتشف الأفضل في مجال الترفيه في الكازينو. 🎮💰">
+  <meta name="google" content="notranslate">
+  <meta name="user_id" content="c9f33b2e-cd0c-40a7-b6e1-b0f9fafa8476">
+  <meta name="onesignal_app_id" content="7f66730c-9df9-4c99-9984-13a27647a31c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:,">
+  <title>Plinko</title>
+
+  <style>
+
+    :root {
+      --blue: #4285F4;
+      --red: #DB4437;
+      --yellow: #F4B400;
+      --green: #0F9D58;
+    }
+
+    body {
+      height: 100svh;
+    }
+
+    #app {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container-loader {
+      width: 200px;
+      height: 200px;
+      position: fixed;
+      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      margin: 10px;
+      min-width: 100px;
+      display: none;
+    }
+
+    .container-loader .content {
+      width: 100%;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .animation .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 10px;
+      margin: 5px;
+      animation: g-loader 1s ease-in-out infinite;
+    }
+
+    .animation .dot:nth-child(1) {
+      background: var(--blue);
+      animation-delay: .1s;
+    }
+
+    .animation .dot:nth-child(2) {
+      background: var(--red);
+      animation-delay: .25s;
+    }
+
+    .animation .dot:nth-child(3) {
+      background: var(--yellow);
+      animation-delay: .4s;
+    }
+
+    .animation .dot:nth-child(4) {
+      background: var(--green);
+      animation-delay: .55s;
+    }
+
+    @keyframes g-loader {
+      0%, 100% {
         height: 15px;
-        border-radius: 10px;
-        margin: 5px;
-        animation: g-loader 1s ease-in-out infinite;
       }
-
-      .animation .dot:nth-child(1) {
-        background: var(--blue);
-        animation-delay: .1s;
+      50% {
+        height: 40px;
       }
+    }
 
-      .animation .dot:nth-child(2) {
-        background: var(--red);
-        animation-delay: .25s;
-      }
+  </style>
 
-      .animation .dot:nth-child(3) {
-        background: var(--yellow);
-        animation-delay: .4s;
-      }
+  
+  
+<link rel="manifest" href="/manifest.webmanifest?v=c9f33b2e-cd0c-40a7-b6e1-b0f9fafa8476"><link rel="stylesheet" href="/assets/index-C_mXxGlj.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" media="all"><style>.vue3-star-ratings[data-v-7fab3f62]{width:fit-content;overflow:hidden;position:relative;white-space:nowrap}.vue3-star-ratings *[data-v-7fab3f62]{box-sizing:border-box;margin:0;padding:0;line-height:1}.vue3-star-ratings__inner[data-v-7fab3f62],.vue3-star-ratings__outer[data-v-7fab3f62]{height:inherit}.vue3-star-ratings__outer[data-v-7fab3f62]{position:absolute;top:0;left:0;width:var(--vue3StarRatingOuterWidth);max-width:100%;overflow:hidden;color:var(--vue3StarRatingsOuterColor);transition:width .32s cubic-bezier(.075,.82,.165,1)}.vue3-star-ratings__inner[data-v-7fab3f62]{color:var(--vue3StarRatingsInnerColor)}.vue3-star-ratings__icon[data-v-7fab3f62]{fill:currentColor;width:var(--vue3StarRatingIconSize);aspect-ratio:1;cursor:pointer;display:inline-block}</style><script id="onesignal-sdk" defer="" src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script><style type="text/css" id="vuetify-theme-stylesheet">:root {
+    --v-theme-background: 255,255,255;
+    --v-theme-background-overlay-multiplier: 1;
+    --v-theme-surface: 255,255,255;
+    --v-theme-surface-overlay-multiplier: 1;
+    --v-theme-surface-bright: 255,255,255;
+    --v-theme-surface-bright-overlay-multiplier: 1;
+    --v-theme-surface-light: 238,238,238;
+    --v-theme-surface-light-overlay-multiplier: 1;
+    --v-theme-surface-variant: 66,66,66;
+    --v-theme-surface-variant-overlay-multiplier: 2;
+    --v-theme-on-surface-variant: 238,238,238;
+    --v-theme-primary: 24,103,192;
+    --v-theme-primary-overlay-multiplier: 2;
+    --v-theme-primary-darken-1: 31,85,146;
+    --v-theme-primary-darken-1-overlay-multiplier: 2;
+    --v-theme-secondary: 72,169,166;
+    --v-theme-secondary-overlay-multiplier: 1;
+    --v-theme-secondary-darken-1: 1,135,134;
+    --v-theme-secondary-darken-1-overlay-multiplier: 1;
+    --v-theme-error: 176,0,32;
+    --v-theme-error-overlay-multiplier: 2;
+    --v-theme-info: 33,150,243;
+    --v-theme-info-overlay-multiplier: 1;
+    --v-theme-success: 76,175,80;
+    --v-theme-success-overlay-multiplier: 1;
+    --v-theme-warning: 251,140,0;
+    --v-theme-warning-overlay-multiplier: 1;
+    --v-theme-on-background: 0,0,0;
+    --v-theme-on-surface: 0,0,0;
+    --v-theme-on-surface-bright: 0,0,0;
+    --v-theme-on-surface-light: 0,0,0;
+    --v-theme-on-primary: 255,255,255;
+    --v-theme-on-primary-darken-1: 255,255,255;
+    --v-theme-on-secondary: 255,255,255;
+    --v-theme-on-secondary-darken-1: 255,255,255;
+    --v-theme-on-error: 255,255,255;
+    --v-theme-on-info: 255,255,255;
+    --v-theme-on-success: 255,255,255;
+    --v-theme-on-warning: 255,255,255;
+    --v-border-color: 0, 0, 0;
+    --v-border-opacity: 0.12;
+    --v-high-emphasis-opacity: 0.87;
+    --v-medium-emphasis-opacity: 0.6;
+    --v-disabled-opacity: 0.38;
+    --v-idle-opacity: 0.04;
+    --v-hover-opacity: 0.04;
+    --v-focus-opacity: 0.12;
+    --v-selected-opacity: 0.08;
+    --v-activated-opacity: 0.12;
+    --v-pressed-opacity: 0.12;
+    --v-dragged-opacity: 0.08;
+    --v-theme-kbd: 33, 37, 41;
+    --v-theme-on-kbd: 255, 255, 255;
+    --v-theme-code: 245, 245, 245;
+    --v-theme-on-code: 0, 0, 0;
+  }
+  .v-theme--light {
+    color-scheme: normal;
+    --v-theme-background: 255,255,255;
+    --v-theme-background-overlay-multiplier: 1;
+    --v-theme-surface: 255,255,255;
+    --v-theme-surface-overlay-multiplier: 1;
+    --v-theme-surface-bright: 255,255,255;
+    --v-theme-surface-bright-overlay-multiplier: 1;
+    --v-theme-surface-light: 238,238,238;
+    --v-theme-surface-light-overlay-multiplier: 1;
+    --v-theme-surface-variant: 66,66,66;
+    --v-theme-surface-variant-overlay-multiplier: 2;
+    --v-theme-on-surface-variant: 238,238,238;
+    --v-theme-primary: 24,103,192;
+    --v-theme-primary-overlay-multiplier: 2;
+    --v-theme-primary-darken-1: 31,85,146;
+    --v-theme-primary-darken-1-overlay-multiplier: 2;
+    --v-theme-secondary: 72,169,166;
+    --v-theme-secondary-overlay-multiplier: 1;
+    --v-theme-secondary-darken-1: 1,135,134;
+    --v-theme-secondary-darken-1-overlay-multiplier: 1;
+    --v-theme-error: 176,0,32;
+    --v-theme-error-overlay-multiplier: 2;
+    --v-theme-info: 33,150,243;
+    --v-theme-info-overlay-multiplier: 1;
+    --v-theme-success: 76,175,80;
+    --v-theme-success-overlay-multiplier: 1;
+    --v-theme-warning: 251,140,0;
+    --v-theme-warning-overlay-multiplier: 1;
+    --v-theme-on-background: 0,0,0;
+    --v-theme-on-surface: 0,0,0;
+    --v-theme-on-surface-bright: 0,0,0;
+    --v-theme-on-surface-light: 0,0,0;
+    --v-theme-on-primary: 255,255,255;
+    --v-theme-on-primary-darken-1: 255,255,255;
+    --v-theme-on-secondary: 255,255,255;
+    --v-theme-on-secondary-darken-1: 255,255,255;
+    --v-theme-on-error: 255,255,255;
+    --v-theme-on-info: 255,255,255;
+    --v-theme-on-success: 255,255,255;
+    --v-theme-on-warning: 255,255,255;
+    --v-border-color: 0, 0, 0;
+    --v-border-opacity: 0.12;
+    --v-high-emphasis-opacity: 0.87;
+    --v-medium-emphasis-opacity: 0.6;
+    --v-disabled-opacity: 0.38;
+    --v-idle-opacity: 0.04;
+    --v-hover-opacity: 0.04;
+    --v-focus-opacity: 0.12;
+    --v-selected-opacity: 0.08;
+    --v-activated-opacity: 0.12;
+    --v-pressed-opacity: 0.12;
+    --v-dragged-opacity: 0.08;
+    --v-theme-kbd: 33, 37, 41;
+    --v-theme-on-kbd: 255, 255, 255;
+    --v-theme-code: 245, 245, 245;
+    --v-theme-on-code: 0, 0, 0;
+  }
+  .v-theme--dark {
+    color-scheme: dark;
+    --v-theme-background: 18,18,18;
+    --v-theme-background-overlay-multiplier: 1;
+    --v-theme-surface: 33,33,33;
+    --v-theme-surface-overlay-multiplier: 1;
+    --v-theme-surface-bright: 204,191,214;
+    --v-theme-surface-bright-overlay-multiplier: 2;
+    --v-theme-surface-light: 66,66,66;
+    --v-theme-surface-light-overlay-multiplier: 1;
+    --v-theme-surface-variant: 163,163,163;
+    --v-theme-surface-variant-overlay-multiplier: 2;
+    --v-theme-on-surface-variant: 66,66,66;
+    --v-theme-primary: 33,150,243;
+    --v-theme-primary-overlay-multiplier: 2;
+    --v-theme-primary-darken-1: 39,124,193;
+    --v-theme-primary-darken-1-overlay-multiplier: 2;
+    --v-theme-secondary: 84,182,178;
+    --v-theme-secondary-overlay-multiplier: 2;
+    --v-theme-secondary-darken-1: 72,169,166;
+    --v-theme-secondary-darken-1-overlay-multiplier: 2;
+    --v-theme-error: 207,102,121;
+    --v-theme-error-overlay-multiplier: 2;
+    --v-theme-info: 33,150,243;
+    --v-theme-info-overlay-multiplier: 2;
+    --v-theme-success: 76,175,80;
+    --v-theme-success-overlay-multiplier: 2;
+    --v-theme-warning: 251,140,0;
+    --v-theme-warning-overlay-multiplier: 2;
+    --v-theme-on-background: 255,255,255;
+    --v-theme-on-surface: 255,255,255;
+    --v-theme-on-surface-bright: 0,0,0;
+    --v-theme-on-surface-light: 255,255,255;
+    --v-theme-on-primary: 255,255,255;
+    --v-theme-on-primary-darken-1: 255,255,255;
+    --v-theme-on-secondary: 255,255,255;
+    --v-theme-on-secondary-darken-1: 255,255,255;
+    --v-theme-on-error: 255,255,255;
+    --v-theme-on-info: 255,255,255;
+    --v-theme-on-success: 255,255,255;
+    --v-theme-on-warning: 255,255,255;
+    --v-border-color: 255, 255, 255;
+    --v-border-opacity: 0.12;
+    --v-high-emphasis-opacity: 1;
+    --v-medium-emphasis-opacity: 0.7;
+    --v-disabled-opacity: 0.5;
+    --v-idle-opacity: 0.1;
+    --v-hover-opacity: 0.04;
+    --v-focus-opacity: 0.12;
+    --v-selected-opacity: 0.08;
+    --v-activated-opacity: 0.12;
+    --v-pressed-opacity: 0.16;
+    --v-dragged-opacity: 0.08;
+    --v-theme-kbd: 33, 37, 41;
+    --v-theme-on-kbd: 255, 255, 255;
+    --v-theme-code: 52, 52, 52;
+    --v-theme-on-code: 204, 204, 204;
+  }
+  .bg-background {
+    --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+    background-color: rgb(var(--v-theme-background)) !important;
+    color: rgb(var(--v-theme-on-background)) !important;
+  }
+  .bg-surface {
+    --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+    background-color: rgb(var(--v-theme-surface)) !important;
+    color: rgb(var(--v-theme-on-surface)) !important;
+  }
+  .bg-surface-bright {
+    --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+    background-color: rgb(var(--v-theme-surface-bright)) !important;
+    color: rgb(var(--v-theme-on-surface-bright)) !important;
+  }
+  .bg-surface-light {
+    --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+    background-color: rgb(var(--v-theme-surface-light)) !important;
+    color: rgb(var(--v-theme-on-surface-light)) !important;
+  }
+  .bg-surface-variant {
+    --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+    background-color: rgb(var(--v-theme-surface-variant)) !important;
+    color: rgb(var(--v-theme-on-surface-variant)) !important;
+  }
+  .bg-primary {
+    --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+    background-color: rgb(var(--v-theme-primary)) !important;
+    color: rgb(var(--v-theme-on-primary)) !important;
+  }
+  .bg-primary-darken-1 {
+    --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+    background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+    color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+  }
+  .bg-secondary {
+    --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+    background-color: rgb(var(--v-theme-secondary)) !important;
+    color: rgb(var(--v-theme-on-secondary)) !important;
+  }
+  .bg-secondary-darken-1 {
+    --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+    background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+  }
+  .bg-error {
+    --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+    background-color: rgb(var(--v-theme-error)) !important;
+    color: rgb(var(--v-theme-on-error)) !important;
+  }
+  .bg-info {
+    --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+    background-color: rgb(var(--v-theme-info)) !important;
+    color: rgb(var(--v-theme-on-info)) !important;
+  }
+  .bg-success {
+    --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+    background-color: rgb(var(--v-theme-success)) !important;
+    color: rgb(var(--v-theme-on-success)) !important;
+  }
+  .bg-warning {
+    --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+    background-color: rgb(var(--v-theme-warning)) !important;
+    color: rgb(var(--v-theme-on-warning)) !important;
+  }
+  .text-background {
+    color: rgb(var(--v-theme-background)) !important;
+  }
+  .border-background {
+    --v-border-color: var(--v-theme-background);
+  }
+  .text-surface {
+    color: rgb(var(--v-theme-surface)) !important;
+  }
+  .border-surface {
+    --v-border-color: var(--v-theme-surface);
+  }
+  .text-surface-bright {
+    color: rgb(var(--v-theme-surface-bright)) !important;
+  }
+  .border-surface-bright {
+    --v-border-color: var(--v-theme-surface-bright);
+  }
+  .text-surface-light {
+    color: rgb(var(--v-theme-surface-light)) !important;
+  }
+  .border-surface-light {
+    --v-border-color: var(--v-theme-surface-light);
+  }
+  .text-surface-variant {
+    color: rgb(var(--v-theme-surface-variant)) !important;
+  }
+  .border-surface-variant {
+    --v-border-color: var(--v-theme-surface-variant);
+  }
+  .on-surface-variant {
+    color: rgb(var(--v-theme-on-surface-variant)) !important;
+  }
+  .text-primary {
+    color: rgb(var(--v-theme-primary)) !important;
+  }
+  .border-primary {
+    --v-border-color: var(--v-theme-primary);
+  }
+  .text-primary-darken-1 {
+    color: rgb(var(--v-theme-primary-darken-1)) !important;
+  }
+  .border-primary-darken-1 {
+    --v-border-color: var(--v-theme-primary-darken-1);
+  }
+  .text-secondary {
+    color: rgb(var(--v-theme-secondary)) !important;
+  }
+  .border-secondary {
+    --v-border-color: var(--v-theme-secondary);
+  }
+  .text-secondary-darken-1 {
+    color: rgb(var(--v-theme-secondary-darken-1)) !important;
+  }
+  .border-secondary-darken-1 {
+    --v-border-color: var(--v-theme-secondary-darken-1);
+  }
+  .text-error {
+    color: rgb(var(--v-theme-error)) !important;
+  }
+  .border-error {
+    --v-border-color: var(--v-theme-error);
+  }
+  .text-info {
+    color: rgb(var(--v-theme-info)) !important;
+  }
+  .border-info {
+    --v-border-color: var(--v-theme-info);
+  }
+  .text-success {
+    color: rgb(var(--v-theme-success)) !important;
+  }
+  .border-success {
+    --v-border-color: var(--v-theme-success);
+  }
+  .text-warning {
+    color: rgb(var(--v-theme-warning)) !important;
+  }
+  .border-warning {
+    --v-border-color: var(--v-theme-warning);
+  }
+  .on-background {
+    color: rgb(var(--v-theme-on-background)) !important;
+  }
+  .on-surface {
+    color: rgb(var(--v-theme-on-surface)) !important;
+  }
+  .on-surface-bright {
+    color: rgb(var(--v-theme-on-surface-bright)) !important;
+  }
+  .on-surface-light {
+    color: rgb(var(--v-theme-on-surface-light)) !important;
+  }
+  .on-primary {
+    color: rgb(var(--v-theme-on-primary)) !important;
+  }
+  .on-primary-darken-1 {
+    color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+  }
+  .on-secondary {
+    color: rgb(var(--v-theme-on-secondary)) !important;
+  }
+  .on-secondary-darken-1 {
+    color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+  }
+  .on-error {
+    color: rgb(var(--v-theme-on-error)) !important;
+  }
+  .on-info {
+    color: rgb(var(--v-theme-on-info)) !important;
+  }
+  .on-success {
+    color: rgb(var(--v-theme-on-success)) !important;
+  }
+  .on-warning {
+    color: rgb(var(--v-theme-on-warning)) !important;
+  }
+</style><script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160202" defer=""></script></head>
 
-      .animation .dot:nth-child(4) {
-        background: var(--green);
-        animation-delay: .55s;
-      }
-
-      @keyframes g-loader {
-        0%, 100% {
-          height: 15px;
-        }
-        50% {
-          height: 40px;
-        }
-      }
-
-    </style>
-
-    
-    
-  <link rel="manifest" href="/manifest.webmanifest"></head>
-
-  <body>
-    <div id="loader" class="container-loader animation">
-      <div class="content">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
+<body>
+  <div id="loader" class="container-loader animation" style="display: none;">
+    <div class="content">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-    <div id="app" style="display: none;"></div>
-    <a style="display: none" id="rd" href="#">rd</a>
-    <script>
+  </div>
+  <div id="app" style="display: block;" data-v-app=""><div data-v-2e768c3c="" data-v-03b0ab08="" class="component market-component"><!----><!----><!----><!----><div data-v-2e768c3c="" class="component__inner"><main data-v-2e768c3c=""><section data-v-2e768c3c="" class="info"><div data-v-2e768c3c="" class="info__main"><img data-v-2e768c3c="" class="info__img" alt="app icon" data-src="https://cdn.pwa-tech.pro/abf98918-3e74-429b-61e8-6151a0b6c400.png" src="https://cdn.pwa-tech.pro/abf98918-3e74-429b-61e8-6151a0b6c400.png" lazy="loaded"><div data-v-2e768c3c="" class="info__text-block"><p data-v-2e768c3c="" class="info__name">Plinko <span data-v-2e768c3c="" class="info__verified-icon"></span></p><p data-v-2e768c3c="" class="info__dev">1xBet</p><p data-v-2e768c3c="" class="info__additional"><span data-v-2e768c3c="">يتضمن إعلانات</span><span data-v-2e768c3c="">عمليات شراء داخل التطبيق</span></p></div></div><div data-v-2e768c3c="" class="info__numbers"><div data-v-2e768c3c="" class="ps info__numbers ps--active-x"><ul data-v-2e768c3c="" class="info__numbers-list"><li data-v-2e768c3c="" class="info__numbers-item info__numbers-item--reviews"><span data-v-2e768c3c="">4.8</span><span data-v-2e768c3c="">التقييم</span></li><li data-v-2e768c3c="" class="info__numbers-item"><span data-v-2e768c3c="">100K+</span><span data-v-2e768c3c="">عمليات التنزيل</span></li><li data-v-2e768c3c="" class="info__numbers-item"><span data-v-2e768c3c=""><svg data-v-2e768c3c="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" xml:space="preserve"><rect fill="none" width="20" height="20"></rect><path fill="#202124" d="M10.54,11.09L8.66,9.22l-1.02,1.02l2.9,2.9l5.8-5.8l-1.02-1.01L10.54,11.09z M15.8,16.24H8.2L4.41,9.66L8.2,3h7.6l3.79,6.66 L15.8,16.24z M17,1H7L2,9.66l5,8.64V23l5-2l5,2v-4.69l5-8.64L17,1z"></path></svg></span><span data-v-2e768c3c="">اختيار المحررين</span></li><li data-v-2e768c3c="" class="info__numbers-item info__numbers-item--rating"><span data-v-2e768c3c="">18+</span><span data-v-2e768c3c="">18+</span></li></ul><div class="ps__rail-x" style="width: 420px; left: 0px; top: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 379px;"></div></div><div class="ps__rail-y" style="top: 0px; left: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div></div><button data-v-2e768c3c="" class="info__button" disabled=""><span data-v-2e768c3c=""> Loading... </span></button><!----><!----><p data-v-2e768c3c="" class="info__install">يتوفَّر هذا التطبيق لجميع أجهزتك.</p><div data-v-2e768c3c="" class="info__gallery"><div data-v-2e768c3c="" class="swiper swiper-initialized swiper-horizontal swiper-free-mode swiper-backface-hidden"><div class="swiper-wrapper"><div data-v-2e768c3c="" class="swiper-slide swiper-slide-active carousel__item" style="width: 145px; margin-right: 10px;"><div data-v-2e768c3c="" class="info__gallery-item"><img data-v-2e768c3c="" alt="Gallery slide" data-src="https://cdn.pwa-tech.pro/568d39fe-ac08-4c36-2a63-2ddf2538dc00.png" src="https://cdn.pwa-tech.pro/568d39fe-ac08-4c36-2a63-2ddf2538dc00.png" lazy="loaded"></div><!----></div><div data-v-2e768c3c="" class="swiper-slide swiper-slide-next carousel__item" style="width: 145px; margin-right: 10px;"><div data-v-2e768c3c="" class="info__gallery-item"><img data-v-2e768c3c="" alt="Gallery slide" data-src="https://cdn.pwa-tech.pro/3e665eb5-deed-4978-7a7f-c7ceb914f800.png" src="https://cdn.pwa-tech.pro/3e665eb5-deed-4978-7a7f-c7ceb914f800.png" lazy="loaded"></div><!----></div><div data-v-2e768c3c="" class="swiper-slide carousel__item" style="width: 145px; margin-right: 10px;"><div data-v-2e768c3c="" class="info__gallery-item"><img data-v-2e768c3c="" alt="Gallery slide" data-src="https://cdn.pwa-tech.pro/49580784-094e-4cd0-f705-6b9b3b42dd00.png" src="https://cdn.pwa-tech.pro/49580784-094e-4cd0-f705-6b9b3b42dd00.png" lazy="loaded"></div><!----></div><div data-v-2e768c3c="" class="swiper-slide carousel__item" style="width: 145px; margin-right: 10px;"><div data-v-2e768c3c="" class="info__gallery-item"><img data-v-2e768c3c="" alt="Gallery slide" data-src="https://cdn.pwa-tech.pro/badb347a-0c05-4537-f6fd-377a7d794f00.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading"></div><!----></div></div><!----><!----><!----></div></div></section><section data-v-2e768c3c="" class="description"><div data-v-2e768c3c="" class="description__top"><h2 data-v-2e768c3c="" class="description__title">الوصف</h2><button data-v-2e768c3c="" class="description__more-button"></button></div><p data-v-2e768c3c="" class="description__text">انغمس في عالم Plinko المثير، أفضل تطبيق كازينو مصمم لمتعة لا نهاية لها ومكافآت رائعة. سواء كنت لاعبًا ذا خبرة أو جديدًا في عالم الكازينو، فإن Plinko يقدم مزيجًا مثاليًا من المرح والاستراتيجية.
 
-      window.deferredPrompt = null;
+🎨 رسومات مذهلة: رسومات عالية الجودة ورسوم متحركة سلسة تضفي الحيوية على اللعبة.
 
-      window.addEventListener('beforeinstallprompt', (event) => {
-        event.preventDefault();
-        window.deferredPrompt = event;
-      });
+💰 مكافآت سخية: مكافآت المكالمات اليومية، ومكافآت الترحيب، وامتيازات VIP الحصرية.
 
-      document.addEventListener('DOMContentLoaded', function () {
+🎉 اللفات الإضافية المثيرة: اختبر إثارة اللفات الإضافية والمضاعفات واللفات المجانية.
 
-        const loader = document.getElementById('loader');
-        const app = document.getElementById('app');
+🏆 البطولات الأسبوعية: تنافس حول العالم وتسلق التصنيف للفوز بجوائز خاصة.
 
-        if (loader) {
-          loader.style.display = 'block';
+✨ واجهة سهلة الاستخدام: يضمن التنقل البسيط والتصميم البديهي تجربة لعب سلسة.
 
-          setTimeout(() => {
-            const fontRobotoLink = document.createElement('link');
-            fontRobotoLink.rel = 'stylesheet';
-            fontRobotoLink.href = 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap';
-            fontRobotoLink.media = 'print';
-            fontRobotoLink.onload = function () {
-              fontRobotoLink.media = 'all';
-            };
+🔒ألعاب آمنة وعادلة. استمتع بمنصة آمنة مع ألعاب عادلة ودعم العملاء على مدار الساعة طوال أيام الأسبوع.
 
-            const fontManropeLink = document.createElement('link');
-            fontManropeLink.rel = 'stylesheet';
-            fontManropeLink.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap';
-            fontManropeLink.media = 'print';
-            fontManropeLink.onload = function () {
-              fontManropeLink.media = 'all';
-            };
+🌍 انضم إلى المجتمع العالمي وانطلق في رحلة مثيرة مليئة بالفرص والمكافآت. 🌟
 
-            const indexCssLink = document.createElement('link');
-            indexCssLink.rel = 'stylesheet';
-            indexCssLink.href = '/assets/index-C_mXxGlj.css';
-            indexCssLink.crossorigin = 'anonymous';
+🚀 طريقة لعب مذهلة ومكافآت رائعة بانتظارك! لا تفوت المتعة! 🎉
 
-            document.head.appendChild(indexCssLink);
-            document.head.appendChild(fontRobotoLink);
-            document.head.appendChild(fontManropeLink);
+🎁 المكافآت اليومية والمزايا الحصرية تجعل كل لعبة مغامرة! ✈️
 
-            const indexScript = document.createElement('script');
-            indexScript.src = '/assets/index-V2hs9HcE.js';
-            indexScript.type = 'module';
-            indexScript.defer = true;
-            indexScript.crossorigin = 'anonymous';
+قم بتنزيل Plinko الآن واكتشف الأفضل في مجال الترفيه في الكازينو. 🎮💰</p><div data-v-2e768c3c="" class="description__updated"><span data-v-2e768c3c="">تاريخ التحديث</span><span data-v-2e768c3c="">21 Feb 2024</span></div><div data-v-2e768c3c="" class="description__categories"></div></section><section data-v-2e768c3c="" class="whats-new"><div data-v-2e768c3c="" class="whats-new__top"><h2 data-v-2e768c3c="" class="whats-new__title">ما الجديد</h2></div><p data-v-2e768c3c="" class="whats-new__text">upd 4.75b</p></section><section data-v-2e768c3c="" class="safety"><div data-v-2e768c3c="" class="safety__top"><h2 data-v-2e768c3c="" class="safety__title">أمان البيانات</h2></div><p data-v-2e768c3c="" class="safety__text">يبدأ الحفاظ على أمان بياناتك بفهم الطريقة التي يتّبعها مطوِّرو التطبيقات لجمع بياناتك ومشاركتها. قد تختلف خصوصية البيانات وممارسات الأمان حسب كيفية استخدامك للتطبيق ومنطقتك وعمرك. يوفّر مطوِّر التطبيقات هذه المعلومات وقد يعدِّلها بمرور الوقت.</p><ul data-v-2e768c3c="" class="safety__list"><li data-v-2e768c3c="" class="safety__list-item"><img data-v-2e768c3c="" src="data:image/webp;base64,UklGRogCAABXRUJQVlA4THsCAAAvJ8AJEAcEIZJsV1WTJODfCIpyhh/P2IAYSZKjKFEm4L8jWKQ1vJyCGEmSoyhRJuC/I1ikNbycchvbtqrccz/u7u4hGQXQAb3RCQ3QhUbu7noCAgMmAAAA2AEAFgCAUSnueID444UqAAMAAETgAS6Xy3lm7hXh+vv7u16vV/n6+kp8fX0FZwbo/f//Zyr+//9vKs4M/v7+5Pv72zIzOJ1O/oqovV6vLwg7ZjMD/CqgUPkqzsy5IrTizIw2m83z9Xq1/v//jzNjR3dmvNX57++v+fv7q8DMmP/////VCv8KUNRhq/544Velqw+euFeAArAjVEkl+OFVObDEGL/FYmHAjCu4WCysy+Wy8fv7KzhVTii0EjwrC7R6g2BlADhWgG632/Zut+vs9/uJAbYAQIabqW3btm2mRup29i5J3djOv1e30fNMRP8VuG2jZMeMfQSkIyueXVyaKY4DreeqQqxvk6YmgIKIOFAjyxkKwyaxwFNZPMjLWbyK7JPFLKgJqFmQXZJcl8CjfCbkoBRlu2YU9DO3I0FB/5VA5cn4jVFXoZ3ebTuyc2J4+s5MDyuloJWShVtks64lA3JqG7k+V7Nfv1CQLeOaN1k1+uxwvw9Udoa/ULmOAGn2k3YUxNY3I4qbrShoZ9SOLIiJWdnvygQJXpFN3UwobH0xIBkcgrqBen68jeTgE9nUQ/HIjDji1aRqyhGngahq5MXNH4OVnWH8cb/xsI1LBdkyVv6Xk3t/xsP2DMipa+SGXCDp9zw0fW+mx7VSiNf/OCiP23/bi8f/zWNCDiWJHpAXeTmb4qEvx7/16iRe+uevBllr0//Q0w6Qt6L5JZ4rhBQ3AgA=" alt="share"><span data-v-2e768c3c="">قد يشارك هذا التطبيق أنواع البيانات هذه مع جهات خارجية. النشاط على التطبيق ومعلومات التطبيق وأداؤه والجهاز أو أرقام التعريف الأخرى</span></li><li data-v-2e768c3c="" class="safety__list-item"><img data-v-2e768c3c="" src="data:image/webp;base64,UklGRooDAABXRUJQVlA4TH0DAAAvJ8AJED8GO5IkR1WiwUOcfyZoLac+FiMgRpLkKEo0eIjzmKDF65+CGEmSoyjR4CHOY4IWr38Kkm3bpp17rr5t2//H6kvSkd+3sJZySlbNePY7atM2YPCa+gYI4AbQpQODXDoAGCgAFFFEwSoCCgoBAADWlpWERyAC2FBgP9/vB1X0/ny+fX0+9//+/no/Pz9P8H9/f2kVwfV2uUx9fn5uzYw2M/3//3+1ysyMhFJRSHxuFoub399f+fn5majozKRn5g9HlYXK//+/OjOt6vf//99DbbNY5LD+/f1N4mSzWPgoVQVABRVAqd4rowJsbxYLho+Z4f///xY61X9lVKf79RqO2y3Zr9fTx+u1je7MKDNDYcPHU/U0M310KweLSkdY0cqGgbeZGVSdyp4ZBe1K4K+ioChXHuyKIVMxaEB8VhQtiCqoEGoVIgNemQhRQ6Ii+MdPVQK/+V4RIHy4COEDK4IAiPRaARMIq0qsOTNDgBVsFovjzWKBu9Xq57DZrC+Hw9Xd6fR6PR4XkHXb1rE3O7br2Ead2rZjp7Zi1LZxqq/dT63YTn7Yi+/9rnIb0f8JwKTfPzkyNiYi2c9RU5efet/d2tb+6uSKEEc4rWlqEyFJkbamZda57PhPERFSRMhv+9wt8jpOiq15PBgIHm+2CXnI05ptinxyGIZHnpCtmy0JGhS5vwEmN9wT6Q+y4qLIr/kwveCnyAULvO9Q7XIz57pd8a6/PelLRr/Ki03QbWjQwfqnYjtnx5znSsiqAI1nkVJFHprAKrYWmls5IBTyBAB47rSRn455AUAl1QFTi7+LtD1YnTRLU2Qjyc/Fmjzyxv4Ro+m3KP+2ZDhBO6aoq8YA5JJsefPQV29C8eNR6DqPvaXh2zFnlJIUyo91mj1XReqhP6zIm4/JxzdJNYy5pbmVV1rIy2kAwn6LzDTIrpNHmSVkSeYjqcuGdm/FF7ZudQGi+0gY+zdmIYfMQVajP/Q9Lolcnw3EtZqCN5BL5gLeMJ4h7AgHonooISZgZJpsjQNSXoucd4wr2RcN+B4kXy5yyJDI31AACz8Ir611wLTbIrVBANxPK/Ll2SlG+eRuEy5Dt8neVdA61yihCLUAChRNi1CVOevA6cw7Co02fhQ7est8Yegyr/xZV6uB89JOZaLvT/UqZ5j1SY2IS0xMTII2ND7RMCE6NAiTdAA=" alt="collect"><span data-v-2e768c3c="">قد يجمع هذا التطبيق أنواع البيانات هذه. المعلومات الشخصية والمعلومات المالية و6 نوع آخر من البيانات</span></li><li data-v-2e768c3c="" class="safety__list-item"><img data-v-2e768c3c="" src="data:image/webp;base64,UklGRrYBAABXRUJQVlA4TKoBAAAvJ8AJEK/BOpJkJbMPd3fIP0P+YNNgXNu2i/PClymBkSL0345x5j1GkSRJyTl24XX9sYAO/HvAAApgG9m2kou7RRYTUwA9UKK19KvA3T0AAAVCQL37DwddifsAsCv9PzjjAp+UoB/v0CqcHOoUGLfDP/3DvT75s1xEGowISMAYIHaSGDQsSQDcpFMSKgKRdZ5Wc400axN/EG/is7XEXzSr104biaxtQAeJL/a+0phZNsxAWlp433ibbyTVGcGVJNtqcnF34skJHNx9/4uzd9+j8h/Rf0Zu2ziiTjPb6yPkb5Ue1Vqt+ihZ8+7rOAzj9d2zNFlGnANzRsuJlemCIAESXExtli6JfFcRqexycOnp93aPkN/ko1uO6F7Seq7IrXy1JVdPrUFKlr+VyXSg1QsA+REQ9LT6MEFfq2HW0GqaNVWuh/MewOX41QXA/ny4Gr1mGVRls5fBMCGUMRn+1g7fWym6AGH7tzoAUQWgbjiWjUZxjFqtkRPdje9vug6MNwCwGdvr+G9+xx13A2er/GVHxX1f3L3P7r4Pd9+bs+9X8T84aQanw1WKngA=" alt="cipher"><span data-v-2e768c3c="">يتم تشفير البيانات أثناء النقل</span></li><li data-v-2e768c3c="" class="safety__list-item"><img data-v-2e768c3c="" src="data:image/webp;base64,UklGRvIAAABXRUJQVlA4TOYAAAAvJ8AJEM+gEJIkp/09ju0Bcn4NBW3bSOZPZcCmQbi3Ctq2kcyfw8E7EH+YxrbV6PHJ4LGZAuiR+pKni5VrAkDP04cIDwELAoHucaPGPPeJl08S+/H//LfvGe89MdbyqWf+Cj/h/Y/7Lt5rwZEjSU5UuGYsngL+/1U0PbN+bxH9nwB8q0zMVBu5bVNauTV1mmFBkyYlJM2WsGmAJz3UnvRQRzLqIhmfbolzAzRzXEqR7IGe5AMIIP8tA5gHsGJqoDZiSynzDGTQBXLQjeTaibJbyVE3Hcx6TLpq23PsW6WDu07deTl8nw==" alt="delete"><span data-v-2e768c3c="">يتم تشفير البيانات أثناء النقل</span></li></ul></section><section data-v-2e768c3c="" class="reviews"><div data-v-2e768c3c="" class="reviews__top"><h2 data-v-2e768c3c="" class="reviews__title">التقييمات والتعليقات</h2><button data-v-2e768c3c="" class="reviews__more-button"></button></div><p data-v-2e768c3c="" class="reviews__disclaimer">تم التحقّق من التقييمات والمراجعات.</p><div data-v-45d1d4ae="" data-v-2e768c3c="" class="rating reviews__ratings" style="--c62af054: 90%; --c62af056: 4%; --c62af058: 3%; --c62af05a: 1%; --c62af05c: 1%;"><div data-v-45d1d4ae="" class="rating__left-block"><p data-v-45d1d4ae="" class="rating__number">4.8</p><div data-v-7fab3f62="" data-v-45d1d4ae="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 96%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-45d1d4ae="" class="rating__quantity"> مراجعة: 6K</p></div><div class="rating__right-block" data-v-45d1d4ae=""><div class="rating__scale-row" data-v-45d1d4ae=""><span data-v-45d1d4ae="">5</span><div data-v-45d1d4ae=""></div></div><div class="rating__scale-row" data-v-45d1d4ae=""><span data-v-45d1d4ae="">4</span><div data-v-45d1d4ae=""></div></div><div class="rating__scale-row" data-v-45d1d4ae=""><span data-v-45d1d4ae="">3</span><div data-v-45d1d4ae=""></div></div><div class="rating__scale-row" data-v-45d1d4ae=""><span data-v-45d1d4ae="">2</span><div data-v-45d1d4ae=""></div></div><div class="rating__scale-row" data-v-45d1d4ae=""><span data-v-45d1d4ae="">1</span><div data-v-45d1d4ae=""></div></div></div></div><div data-v-2e768c3c="" class="reviews__comments"><div data-v-ffcec1f1="" data-v-2e768c3c="" class="comment reviews__comment" style="--bdf06722: #ABE52E;"><div data-v-ffcec1f1="" class="comment__header"><div data-v-ffcec1f1="" class="comment__avatar"><img data-v-ffcec1f1="" alt="avatar" data-src="https://cdn.pwa-tech.pro/b2bd3004-2aeb-46ab-73fc-5aedf58dab00.jpeg" src="https://cdn.pwa-tech.pro/b2bd3004-2aeb-46ab-73fc-5aedf58dab00.jpeg" lazy="loaded"></div><p data-v-ffcec1f1="" class="comment__name">بادي</p></div><div data-v-ffcec1f1="" class="comment__rating"><div data-v-7fab3f62="" data-v-ffcec1f1="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 100%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-ffcec1f1="" class="comment__date">18 Sep 2024</p></div><p data-v-ffcec1f1="" class="comment__text">Plinko هو تطبيق رائع أوصي به الجميع
+</p><p data-v-ffcec1f1="" class="comment__likes">75</p><div data-v-ffcec1f1="" class="comment__helpful"><p data-v-ffcec1f1="" class="comment__helpful-text">هل كان هذا المحتوى مفيدًا؟</p><div data-v-ffcec1f1="" class="comment__helpful-buttons"><button data-v-ffcec1f1="" class="comment__helpful-button">نعم</button><button data-v-ffcec1f1="" class="comment__helpful-button">لا</button></div></div><!----></div><div data-v-ffcec1f1="" data-v-2e768c3c="" class="comment reviews__comment" style="--bdf06722: #D9BFF5;"><div data-v-ffcec1f1="" class="comment__header"><div data-v-ffcec1f1="" class="comment__avatar"><img data-v-ffcec1f1="" alt="avatar" data-src="https://cdn.pwa-tech.pro/9a9ab0cf-9ab7-45cb-a55c-9d7c51e98200.jpeg" src="https://cdn.pwa-tech.pro/9a9ab0cf-9ab7-45cb-a55c-9d7c51e98200.jpeg" lazy="loaded"></div><p data-v-ffcec1f1="" class="comment__name">معروف</p></div><div data-v-ffcec1f1="" class="comment__rating"><div data-v-7fab3f62="" data-v-ffcec1f1="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 100%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-ffcec1f1="" class="comment__date">12 Sep 2024</p></div><p data-v-ffcec1f1="" class="comment__text">تطبيق طيار عظيم. نحن نستخدمها بكل سرور. مريحة للغاية ومفهومة. من الممتع المراهنة على الرياضة.. أوصي بهذا التطبيق.
+</p><p data-v-ffcec1f1="" class="comment__likes">32</p><div data-v-ffcec1f1="" class="comment__helpful"><p data-v-ffcec1f1="" class="comment__helpful-text">هل كان هذا المحتوى مفيدًا؟</p><div data-v-ffcec1f1="" class="comment__helpful-buttons"><button data-v-ffcec1f1="" class="comment__helpful-button">نعم</button><button data-v-ffcec1f1="" class="comment__helpful-button">لا</button></div></div><!----></div><div data-v-ffcec1f1="" data-v-2e768c3c="" class="comment reviews__comment" style="--bdf06722: #A61B80;"><div data-v-ffcec1f1="" class="comment__header"><div data-v-ffcec1f1="" class="comment__avatar"><img data-v-ffcec1f1="" alt="avatar" data-src="https://cdn.pwa-tech.pro/f182ae43-9e04-489d-e7cd-e0eebee6d100.png" src="https://cdn.pwa-tech.pro/f182ae43-9e04-489d-e7cd-e0eebee6d100.png" lazy="loaded"></div><p data-v-ffcec1f1="" class="comment__name">Casi</p></div><div data-v-ffcec1f1="" class="comment__rating"><div data-v-7fab3f62="" data-v-ffcec1f1="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 100%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-ffcec1f1="" class="comment__date">10 Oct 2024</p></div><p data-v-ffcec1f1="" class="comment__text">Wery good!</p><p data-v-ffcec1f1="" class="comment__likes">21</p><div data-v-ffcec1f1="" class="comment__helpful"><p data-v-ffcec1f1="" class="comment__helpful-text">هل كان هذا المحتوى مفيدًا؟</p><div data-v-ffcec1f1="" class="comment__helpful-buttons"><button data-v-ffcec1f1="" class="comment__helpful-button">نعم</button><button data-v-ffcec1f1="" class="comment__helpful-button">لا</button></div></div><!----></div><div data-v-ffcec1f1="" data-v-2e768c3c="" class="comment reviews__comment" style="--bdf06722: #E9646B;"><div data-v-ffcec1f1="" class="comment__header"><div data-v-ffcec1f1="" class="comment__avatar"><img data-v-ffcec1f1="" alt="avatar" data-src="https://cdn.pwa-tech.pro/89de09d3-6c76-4267-16f6-29f7d8a68b00.jpeg" src="https://cdn.pwa-tech.pro/89de09d3-6c76-4267-16f6-29f7d8a68b00.jpeg" lazy="loaded"></div><p data-v-ffcec1f1="" class="comment__name">bobik</p></div><div data-v-ffcec1f1="" class="comment__rating"><div data-v-7fab3f62="" data-v-ffcec1f1="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 100%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-ffcec1f1="" class="comment__date">16 Sep 2024</p></div><p data-v-ffcec1f1="" class="comment__text">Plinko هو تطبيق رائع حيث يمكنك كسب أموال جيدة من الرهانات والكازينوهات
+</p><p data-v-ffcec1f1="" class="comment__likes">53</p><div data-v-ffcec1f1="" class="comment__helpful"><p data-v-ffcec1f1="" class="comment__helpful-text">هل كان هذا المحتوى مفيدًا؟</p><div data-v-ffcec1f1="" class="comment__helpful-buttons"><button data-v-ffcec1f1="" class="comment__helpful-button">نعم</button><button data-v-ffcec1f1="" class="comment__helpful-button">لا</button></div></div><!----></div><div data-v-ffcec1f1="" data-v-2e768c3c="" class="comment reviews__comment" style="--bdf06722: #0AC7FE;"><div data-v-ffcec1f1="" class="comment__header"><div data-v-ffcec1f1="" class="comment__avatar"><img data-v-ffcec1f1="" alt="avatar" data-src="https://cdn.pwa-tech.pro/a70226e0-475f-4f8b-3a49-e0caf5cb8e00.jpeg" src="https://cdn.pwa-tech.pro/a70226e0-475f-4f8b-3a49-e0caf5cb8e00.jpeg" lazy="loaded"></div><p data-v-ffcec1f1="" class="comment__name"></p></div><div data-v-ffcec1f1="" class="comment__rating"><div data-v-7fab3f62="" data-v-ffcec1f1="" class="vue3-star-ratings" style="pointer-events: none; --vue3StarRatingsInnerColor: #E8EAED; --vue3StarRatingsOuterColor: #01875F; --vue3StarRatingOuterWidth: 100%; --vue3StarRatingIconSize: 14px;"><div data-v-7fab3f62="" class="vue3-star-ratings__outer"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div data-v-7fab3f62="" class="vue3-star-ratings__inner"><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg data-v-7fab3f62="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="vue3-star-ratings__icon"><path d="M0 0h24v24H0z" fill="none"></path><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div></div><p data-v-ffcec1f1="" class="comment__date">21 Feb 2024</p></div><p data-v-ffcec1f1="" class="comment__text">لقد قمت بتنزيل تطبيق كازينو Plinko الممتاز عبر الإنترنت، وحقق أرباحًا جيدة واحتمالات عالية ودفعات فورية. ممتاز!!!
+</p><p data-v-ffcec1f1="" class="comment__likes">15</p><div data-v-ffcec1f1="" class="comment__helpful"><p data-v-ffcec1f1="" class="comment__helpful-text">هل كان هذا المحتوى مفيدًا؟</p><div data-v-ffcec1f1="" class="comment__helpful-buttons"><button data-v-ffcec1f1="" class="comment__helpful-button">نعم</button><button data-v-ffcec1f1="" class="comment__helpful-button">لا</button></div></div><!----></div><!----></div></section></main><footer data-v-2e768c3c="" class="footer"><div data-v-2e768c3c="" class="footer__block-column"><h4 data-v-2e768c3c="" class="footer__h4-title">Store</h4><a data-v-2e768c3c="" class="footer__link">بطاقات الهدايا</a><a data-v-2e768c3c="" class="footer__link">تحصيل القيمة</a><a data-v-2e768c3c="" class="footer__link">المشاركة بين أفراد العائلة</a></div><div data-v-2e768c3c="" class="footer__block-column"><h4 data-v-2e768c3c="" class="footer__h4-title">الأطفال والعائلة</h4><a data-v-2e768c3c="" class="footer__link">دليل الوالدَين</a><a data-v-2e768c3c="" class="footer__link">المشاركة بين أفراد العائلة</a></div><div data-v-2e768c3c="" class="footer__block-row"><a data-v-2e768c3c="" class="footer__link footer__link--row">بنود الخدمة</a><a data-v-2e768c3c="" class="footer__link footer__link--row">الخصوصية</a><a data-v-2e768c3c="" class="footer__link footer__link--row">مطوّرو البرامج</a><a data-v-2e768c3c="" class="footer__link footer__link--row">تشمل جميع الأسعار ضريبة القيمة المضافة.</a></div></footer></div></div><!----><!----><!----></div>
+  <a style="display: none" id="rd" href="#">rd</a>
+  <script>
 
-            const registerSWScript = document.createElement('script');
-            registerSWScript.src = '/registerSW.js';
-            registerSWScript.id = 'vite-plugin-pwa:register-sw';
+    window.deferredPrompt = null;
 
-            document.body.appendChild(registerSWScript);
-            document.body.appendChild(indexScript);
-          }, 500);
-        }
-      });
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      window.deferredPrompt = event;
+    });
 
-    </script>
- <script id="pwaInfo">
-  var pwaInfo = {
-      "approved": true,
-      "name": "Plinko",
-      "developer": "1xBet",
-      "have_ads": true,
-      "have_purchase": true,
-      "editor_choice": true,
-      "age": 18,
-      "rating": 4.8,
-      "number_of_reviews": 6253,
-      "number_of_downloads": 100000,
-      "por_5": 90,
-      "por_4": 4,
-      "por_3": 3,
-      "por_2": 1,
-      "por_1": 1,
-      "descr": "انغمس في عالم Plinko المثير، أفضل تطبيق كازينو مصمم لمتعة لا نهاية لها ومكافآت رائعة. سواء كنت لاعبًا ذا خبرة أو جديدًا في عالم الكازينو، فإن Plinko يقدم مزيجًا مثاليًا من المرح والاستراتيجية.\n\n🎨 رسومات مذهلة: رسومات عالية الجودة ورسوم متحركة سلسة تضفي الحيوية على اللعبة.\n\n💰 مكافآت سخية: مكافآت المكالمات اليومية، ومكافآت الترحيب، وامتيازات VIP الحصرية.\n\n🎉 اللفات الإضافية المثيرة: اختبر إثارة اللفات الإضافية والمضاعفات واللفات المجانية.\n\n🏆 البطولات الأسبوعية: تنافس حول العالم وتسلق التصنيف للفوز بجوائز خاصة.\n\n✨ واجهة سهلة الاستخدام: يضمن التنقل البسيط والتصميم البديهي تجربة لعب سلسة.\n\n🔒ألعاب آمنة وعادلة. استمتع بمنصة آمنة مع ألعاب عادلة ودعم العملاء على مدار الساعة طوال أيام الأسبوع.\n\n🌍 انضم إلى المجتمع العالمي وانطلق في رحلة مثيرة مليئة بالفرص والمكافآت. 🌟\n\n🚀 طريقة لعب مذهلة ومكافآت رائعة بانتظارك! لا تفوت المتعة! 🎉\n\n🎁 المكافآت اليومية والمزايا الحصرية تجعل كل لعبة مغامرة! ✈️\n\nقم بتنزيل Plinko الآن واكتشف الأفضل في مجال الترفيه في الكازينو. 🎮💰",
-      "vers": "6.4.5001",
-      "last_update": 1708502183,
-      "rav": "10",
-      "ie": "Interactive elements",
-      "release": 1708502183,
-      "whats_new": "upd 4.75b",
-      "google": "",
-      "yandex": "",
-      "facebook": "",
-      "tiktok": "",
-      "categories": [],
-      "comments": [{
-          "date": 1726642583,
-          "user_name": "بادي",
-          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/b2bd3004-2aeb-46ab-73fc-5aedf58dab00/public",
-          "picture_ru": "",
-          "content": "Plinko هو تطبيق رائع أوصي به الجميع\n",
-          "stars": 5,
-          "likes": 75,
-          "priority": 0
-      }, {
-          "date": 1726124183,
-          "user_name": "معروف",
-          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/9a9ab0cf-9ab7-45cb-a55c-9d7c51e98200/public",
-          "picture_ru": "",
-          "content": "تطبيق طيار عظيم. نحن نستخدمها بكل سرور. مريحة للغاية ومفهومة. من الممتع المراهنة على الرياضة.. أوصي بهذا التطبيق.\n",
-          "stars": 5,
-          "likes": 32,
-          "priority": 3
-      }, {
-          "date": 1728543383,
-          "user_name": "Casi",
-          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/f182ae43-9e04-489d-e7cd-e0eebee6d100/public",
-          "picture_ru": "",
-          "content": "Wery good!",
-          "stars": 5,
-          "likes": 21,
-          "priority": 4
-      }, {
-          "date": 1726469783,
-          "user_name": "bobik",
-          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/89de09d3-6c76-4267-16f6-29f7d8a68b00/public",
-          "picture_ru": "",
-          "content": "Plinko هو تطبيق رائع حيث يمكنك كسب أموال جيدة من الرهانات والكازينوهات\n",
-          "stars": 5,
-          "likes": 53,
-          "priority": 1
-      }, {
-          "date": 1708502183,
-          "user_name": "",
-          "avatar": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/a70226e0-475f-4f8b-3a49-e0caf5cb8e00/public",
-          "picture_ru": "",
-          "content": "لقد قمت بتنزيل تطبيق كازينو Plinko الممتاز عبر الإنترنت، وحقق أرباحًا جيدة واحتمالات عالية ودفعات فورية. ممتاز!!!\n",
-          "stars": 4,
-          "likes": 15,
-          "priority": 2
-      }],
-      "pictures": [{
-          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/568d39fe-ac08-4c36-2a63-2ddf2538dc00/public",
-          "picture_ru": ""
-      }, {
-          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/3e665eb5-deed-4978-7a7f-c7ceb914f800/public",
-          "picture_ru": ""
-      }, {
-          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/49580784-094e-4cd0-f705-6b9b3b42dd00/public",
-          "picture_ru": ""
-      }, {
-          "picture": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/badb347a-0c05-4537-f6fd-377a7d794f00/public",
-          "picture_ru": ""
-      }],
-      "icon": {
-          "link": "https://imagedelivery.net/r6ZdnJW2Fjs2Kg3O7wfycA/abf98918-3e74-429b-61e8-6151a0b6c400/public",
-          "picture_ru": ""
-      },
-      "static_text": {
-          "install_btn": "تثبيت",
-          "open_btn": "فتح",
-          "installing_str": "يتم التثبيت...",
-          "app_available_str": "يتوفَّر هذا التطبيق لجميع أجهزتك.",
-          "app_not_available": "هذا التطبيق غير متوفر لأجهزتك.",
-          "helpful_info_str": "هل كان هذا المحتوى مفيدًا؟",
-          "yes_str": "نعم",
-          "no_str": "لا",
-          "all_reviews_str": "كل التقييمات",
-          "gift_cards_str": "بطاقات الهدايا",
-          "use_bonus_str": "تحصيل القيمة",
-          "refund_policy_str": "المشاركة بين أفراد العائلة",
-          "children_and_family_str": "الأطفال والعائلة",
-          "guide_for_parents_str": "دليل الوالدَين",
-          "terms_of_use_str": "بنود الخدمة",
-          "confidentiality_str": "الخصوصية",
-          "about_google_play_str": "لمحة عن هذا التطبيق",
-          "for_developers_str": "مطوّرو البرامج",
-          "vat_prices_str": "تشمل جميع الأسعار ضريبة القيمة المضافة.",
-          "developer_str": "يُقدّمه",
-          "have_ads_str": "يتضمن إعلانات",
-          "have_purchase_str": "عمليات شراء داخل التطبيق",
-          "editor_choice_str": "اختيار المحررين",
-          "age_restriction_str": "تقييم المحتوى",
-          "last_update_str": "تاريخ التحديث",
-          "version_str": "الإصدار",
-          "description_str": "الوصف",
-          "ie_str": "عناصر تفاعلية",
-          "rav_str": "يتطلب Android",
-          "release_str": "تاريخ الإصدار",
-          "whats_new_str": "ما الجديد",
-          "data_safety_str": "أمان البيانات",
-          "data_security": "يبدأ الحفاظ على أمان بياناتك بفهم الطريقة التي يتّبعها مطوِّرو التطبيقات لجمع بياناتك ومشاركتها. قد تختلف خصوصية البيانات وممارسات الأمان حسب كيفية استخدامك للتطبيق ومنطقتك وعمرك. يوفّر مطوِّر التطبيقات هذه المعلومات وقد يعدِّلها بمرور الوقت.",
-          "data_transfer": "قد يشارك هذا التطبيق أنواع البيانات هذه مع جهات خارجية. النشاط على التطبيق ومعلومات التطبيق وأداؤه والجهاز أو أرقام التعريف الأخرى",
-          "data_collection": "قد يجمع هذا التطبيق أنواع البيانات هذه. المعلومات الشخصية والمعلومات المالية و6 نوع آخر من البيانات",
-          "data_encryption": "يتم تشفير البيانات أثناء النقل",
-          "deleting_data": "يتم تشفير البيانات أثناء النقل",
-          "number_of_reviews_str": " مراجعة",
-          "rating_str": "التقييم",
-          "number_of_downloads_str": "عمليات التنزيل",
-          "rating_and_reviews_str": "التقييمات والتعليقات",
-          "rating_and_reviews_verif_str": "تم التحقّق من التقييمات والمراجعات.",
-          "parental_controls_required": "التحكم الأبوي مطلوب"
-      },
-      "offer": "https://budgeteam.online/ceu5l1k.php?key=qqeedakc7alzzndem6cm\u0026external_id=c9f33b2e-cd0c-40a7-b6e1-b0f9fafa8476\u0026sub_id_1={sub_id_1}\u0026sub_id_2={sub_id_2}\u0026sub_id_3={sub_id_3}\u0026sub_id_4={sub_id_4}\u0026sub_id_5={sub_id_5}"
-  };
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const loader = document.getElementById('loader');
+      const app = document.getElementById('app');
+
+      if (loader) {
+        loader.style.display = 'block';
+
+        setTimeout(() => {
+          const fontRobotoLink = document.createElement('link');
+          fontRobotoLink.rel = 'stylesheet';
+          fontRobotoLink.href = 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap';
+          fontRobotoLink.media = 'print';
+          fontRobotoLink.onload = function () {
+            fontRobotoLink.media = 'all';
+          };
+
+          const fontManropeLink = document.createElement('link');
+          fontManropeLink.rel = 'stylesheet';
+          fontManropeLink.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap';
+          fontManropeLink.media = 'print';
+          fontManropeLink.onload = function () {
+            fontManropeLink.media = 'all';
+          };
+
+          const indexCssLink = document.createElement('link');
+          indexCssLink.rel = 'stylesheet';
+          indexCssLink.href = '/assets/index-C_mXxGlj.css';
+          indexCssLink.crossorigin = 'anonymous';
+
+          document.head.appendChild(indexCssLink);
+          document.head.appendChild(fontRobotoLink);
+          document.head.appendChild(fontManropeLink);
+
+          const indexScript = document.createElement('script');
+          indexScript.src = '/assets/index-V2hs9HcE.js';
+          indexScript.type = 'module';
+          indexScript.defer = true;
+          indexScript.crossorigin = 'anonymous';
+
+          const registerSWScript = document.createElement('script');
+          registerSWScript.src = '/registerSW.js';
+          registerSWScript.id = 'vite-plugin-pwa:register-sw';
+
+          document.body.appendChild(registerSWScript);
+          document.body.appendChild(indexScript);
+        }, 500);
+      }
+    });
+
   </script>
-  </body>
-</html>
+
+
+  <script id="pwaInfo">
+  var pwaInfo = {"approved":true,"name":"Plinko","developer":"1xBet","have_ads":true,"have_purchase":true,"editor_choice":true,"age":18,"rating":4.8,"number_of_reviews":6253,"number_of_downloads":100000,"por_5":90,"por_4":4,"por_3":3,"por_2":1,"por_1":1,"descr":"انغمس في عالم Plinko المثير، أفضل تطبيق كازينو مصمم لمتعة لا نهاية لها ومكافآت رائعة. سواء كنت لاعبًا ذا خبرة أو جديدًا في عالم الكازينو، فإن Plinko يقدم مزيجًا مثاليًا من المرح والاستراتيجية.\n\n🎨 رسومات مذهلة: رسومات عالية الجودة ورسوم متحركة سلسة تضفي الحيوية على اللعبة.\n\n💰 مكافآت سخية: مكافآت المكالمات اليومية، ومكافآت الترحيب، وامتيازات VIP الحصرية.\n\n🎉 اللفات الإضافية المثيرة: اختبر إثارة اللفات الإضافية والمضاعفات واللفات المجانية.\n\n🏆 البطولات الأسبوعية: تنافس حول العالم وتسلق التصنيف للفوز بجوائز خاصة.\n\n✨ واجهة سهلة الاستخدام: يضمن التنقل البسيط والتصميم البديهي تجربة لعب سلسة.\n\n🔒ألعاب آمنة وعادلة. استمتع بمنصة آمنة مع ألعاب عادلة ودعم العملاء على مدار الساعة طوال أيام الأسبوع.\n\n🌍 انضم إلى المجتمع العالمي وانطلق في رحلة مثيرة مليئة بالفرص والمكافآت. 🌟\n\n🚀 طريقة لعب مذهلة ومكافآت رائعة بانتظارك! لا تفوت المتعة! 🎉\n\n🎁 المكافآت اليومية والمزايا الحصرية تجعل كل لعبة مغامرة! ✈️\n\nقم بتنزيل Plinko الآن واكتشف الأفضل في مجال الترفيه في الكازينو. 🎮💰","vers":"6.4.5001","last_update":1708502183,"rav":"10","ie":"Interactive elements","release":1708502183,"whats_new":"upd 4.75b","google":"","yandex":"","facebook":"","tiktok":"","categories":[],"comments":[{"date":1726642583,"user_name":"بادي","avatar":"https://cdn.pwa-tech.pro/b2bd3004-2aeb-46ab-73fc-5aedf58dab00.jpeg","picture_ru":"","content":"Plinko هو تطبيق رائع أوصي به الجميع\n","stars":5,"likes":75,"priority":0},{"date":1726124183,"user_name":"معروف","avatar":"https://cdn.pwa-tech.pro/9a9ab0cf-9ab7-45cb-a55c-9d7c51e98200.jpeg","picture_ru":"","content":"تطبيق طيار عظيم. نحن نستخدمها بكل سرور. مريحة للغاية ومفهومة. من الممتع المراهنة على الرياضة.. أوصي بهذا التطبيق.\n","stars":5,"likes":32,"priority":3},{"date":1728543383,"user_name":"Casi","avatar":"https://cdn.pwa-tech.pro/f182ae43-9e04-489d-e7cd-e0eebee6d100.png","picture_ru":"","content":"Wery good!","stars":5,"likes":21,"priority":4},{"date":1726469783,"user_name":"bobik","avatar":"https://cdn.pwa-tech.pro/89de09d3-6c76-4267-16f6-29f7d8a68b00.jpeg","picture_ru":"","content":"Plinko هو تطبيق رائع حيث يمكنك كسب أموال جيدة من الرهانات والكازينوهات\n","stars":5,"likes":53,"priority":1},{"date":1708502183,"user_name":"","avatar":"https://cdn.pwa-tech.pro/a70226e0-475f-4f8b-3a49-e0caf5cb8e00.jpeg","picture_ru":"","content":"لقد قمت بتنزيل تطبيق كازينو Plinko الممتاز عبر الإنترنت، وحقق أرباحًا جيدة واحتمالات عالية ودفعات فورية. ممتاز!!!\n","stars":4,"likes":15,"priority":2}],"pictures":[{"picture":"https://cdn.pwa-tech.pro/568d39fe-ac08-4c36-2a63-2ddf2538dc00.png","picture_ru":""},{"picture":"https://cdn.pwa-tech.pro/3e665eb5-deed-4978-7a7f-c7ceb914f800.png","picture_ru":""},{"picture":"https://cdn.pwa-tech.pro/49580784-094e-4cd0-f705-6b9b3b42dd00.png","picture_ru":""},{"picture":"https://cdn.pwa-tech.pro/badb347a-0c05-4537-f6fd-377a7d794f00.png","picture_ru":""}],"icon":{"link":"https://cdn.pwa-tech.pro/abf98918-3e74-429b-61e8-6151a0b6c400.png","picture_ru":""},"static_text":{"install_btn":"تثبيت","open_btn":"فتح","installing_str":"يتم التثبيت...","app_available_str":"يتوفَّر هذا التطبيق لجميع أجهزتك.","app_not_available":"هذا التطبيق غير متوفر لأجهزتك.","helpful_info_str":"هل كان هذا المحتوى مفيدًا؟","yes_str":"نعم","no_str":"لا","all_reviews_str":"كل التقييمات","gift_cards_str":"بطاقات الهدايا","use_bonus_str":"تحصيل القيمة","refund_policy_str":"المشاركة بين أفراد العائلة","children_and_family_str":"الأطفال والعائلة","guide_for_parents_str":"دليل الوالدَين","terms_of_use_str":"بنود الخدمة","confidentiality_str":"الخصوصية","about_google_play_str":"لمحة عن هذا التطبيق","for_developers_str":"مطوّرو البرامج","vat_prices_str":"تشمل جميع الأسعار ضريبة القيمة المضافة.","developer_str":"يُقدّمه","have_ads_str":"يتضمن إعلانات","have_purchase_str":"عمليات شراء داخل التطبيق","editor_choice_str":"اختيار المحررين","age_restriction_str":"تقييم المحتوى","last_update_str":"تاريخ التحديث","version_str":"الإصدار","description_str":"الوصف","ie_str":"عناصر تفاعلية","rav_str":"يتطلب Android","release_str":"تاريخ الإصدار","whats_new_str":"ما الجديد","data_safety_str":"أمان البيانات","data_security":"يبدأ الحفاظ على أمان بياناتك بفهم الطريقة التي يتّبعها مطوِّرو التطبيقات لجمع بياناتك ومشاركتها. قد تختلف خصوصية البيانات وممارسات الأمان حسب كيفية استخدامك للتطبيق ومنطقتك وعمرك. يوفّر مطوِّر التطبيقات هذه المعلومات وقد يعدِّلها بمرور الوقت.","data_transfer":"قد يشارك هذا التطبيق أنواع البيانات هذه مع جهات خارجية. النشاط على التطبيق ومعلومات التطبيق وأداؤه والجهاز أو أرقام التعريف الأخرى","data_collection":"قد يجمع هذا التطبيق أنواع البيانات هذه. المعلومات الشخصية والمعلومات المالية و6 نوع آخر من البيانات","data_encryption":"يتم تشفير البيانات أثناء النقل","deleting_data":"يتم تشفير البيانات أثناء النقل","number_of_reviews_str":" مراجعة","rating_str":"التقييم","number_of_downloads_str":"عمليات التنزيل","rating_and_reviews_str":"التقييمات والتعليقات","rating_and_reviews_verif_str":"تم التحقّق من التقييمات والمراجعات.","parental_controls_required":"التحكم الأبوي مطلوب"},"offer":"https://budgeteam.online/ceu5l1k.php?key=qqeedakc7alzzndem6cm\u0026external_id=c9f33b2e-cd0c-40a7-b6e1-b0f9fafa8476\u0026sub_id_1={sub_id_1}\u0026sub_id_2={sub_id_2}\u0026sub_id_3={sub_id_3}\u0026sub_id_4={sub_id_4}\u0026sub_id_5={sub_id_5}"};
+  </script>
+  
+
+<script src="/registerSW.js" id="vite-plugin-pwa:register-sw"></script><script src="/assets/index-V2hs9HcE.js" type="module" defer=""></script></body></html>
